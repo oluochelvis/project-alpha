@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'project.home',
     'project.boards',
+    'project.accounts'
 ]
 
 MIDDLEWARE = [
@@ -62,6 +63,8 @@ TEMPLATES = [
         'DIRS': [
             ### ADD YOUR DIRECTORY HERE LIKE SO:
             BASE_DIR + '/templates/',
+            BASE_DIR + '/templates/boards',
+            BASE_DIR + '/templates/accounts',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,3 +133,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+LOGOUT_REDIRECT_URL = 'boards_home'
+
+LOGIN_REDIRECT_URL = 'boards_home'
+
+LOGIN_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
